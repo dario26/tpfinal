@@ -11,7 +11,7 @@ y_a=y+1;
 %subplot(4,1,2)
 %plot(y)
 %sound(y,fs)
-y_a=y_a.*(2^15);
+y_a=y_a.*(2^(nbits-1));
 % nbits=8;
 y_bin=dec2bin(y_a,nbits);
 
@@ -29,7 +29,7 @@ for i=1:size(ms_bin,1)
   end
 end
 y_dec=bin2dec(y_bin);
-y_dec=(y_dec./2^15)-1;
+y_dec=(y_dec./2^(nbits-1))-1;
 sound(y_dec,fs)
 subplot(3,1,2)
 plot(y_dec)
@@ -39,7 +39,7 @@ plot(y-y_dec)
 %%verificacion
 
 y_ver_aux=y_dec+1;
-y_ver_aux=y_ver_aux.*2^15;
+y_ver_aux=y_ver_aux.*2^(nbits-1);
 y_ver=dec2bin(y_ver_aux,nbits);
 %m=zeros(size(ms_bin,1),size(ms_bin,2));
 for i=0:size(ms_bin,1)-1
@@ -62,7 +62,7 @@ y_a=y+1;
 %subplot(4,1,2)
 %plot(y)
 %sound(y,fs)
-y_a=y_a.*(2^15);
+y_a=y_a.*(2^(nbits-1));
 y_bin=dec2bin(y_a,nbits);
 
 
@@ -72,9 +72,9 @@ ms_d=single('Estaba el diablo mal parado en la esquina de mi barrio ahi donde do
 ms_bin=dec2bin(ms_d,nbits_m);
 %Codificación
 k=1;
-lsb1=16;
-lsb2=15;
-lsb3=14;
+lsb1=nbits;
+lsb2=nbits-1;
+lsb3=nbits-2;
 for i=1:size(ms_bin,1)
   for j=1:size(ms_bin,2)
       aux=bin2dec(y_bin(k,1:2));
@@ -92,7 +92,7 @@ for i=1:size(ms_bin,1)
   end
 end
 y_dec=bin2dec(y_bin);
-y_dec=(y_dec./2^15)-1;
+y_dec=(y_dec./2^(nbits-1))-1;
 sound(y_dec,fs)
 subplot(3,1,2)
 plot(y_dec)
@@ -102,7 +102,7 @@ plot(y-y_dec)
 %%verificacion
 
 y_ver_aux=y_dec+1;
-y_ver_aux=y_ver_aux.*2^15;
+y_ver_aux=y_ver_aux.*2^(nbits-1);
 y_ver=dec2bin(y_ver_aux,nbits);
 
 k=1;
@@ -144,7 +144,7 @@ y_a=y+1;
 %subplot(4,1,2)
 %plot(y)
 %sound(y,fs)
-y_a=y_a.*(2^15);
+y_a=y_a.*(2^(nbits-1));
 y_bin=dec2bin(y_a,nbits);
 
 
@@ -155,7 +155,7 @@ ms_bin=dec2bin(ms_d,nbits_m);
 %Codificación
 k=1;
 w=0;
-lsb=16;
+lsb=nbits;
 for i=1:size(ms_bin,1)
   for j=1:size(ms_bin,2)
       if k<size(y_bin,1)
@@ -167,7 +167,7 @@ for i=1:size(ms_bin,1)
   end
 end
 y_dec=bin2dec(y_bin);
-y_dec=(y_dec./2^15)-1;
+y_dec=(y_dec./2^(nbits-1))-1;
 sound(y_dec,fs)
 subplot(3,1,2)
 plot(y_dec)
@@ -177,7 +177,7 @@ plot(y-y_dec)
 %%verificacion
 
 y_ver_aux=y_dec+1;
-y_ver_aux=y_ver_aux.*2^15;
+y_ver_aux=y_ver_aux.*2^(nbits-1);
 y_ver=dec2bin(y_ver_aux,nbits);
 
 k=1;
