@@ -12,7 +12,7 @@ y_a=y+minino;
 %subplot(4,1,2)
 %plot(y)
 %sound(y,fs)
-y_a=y_a.*(2^15);
+y_a=y_a.*(2^nbits-1);
 % nbits=8;
 y_bin=dec2bin(y_a,nbits);
 
