@@ -8,7 +8,7 @@ subplot(3,1,1)
 plot(y)
 sound(y,fs)
 minimo=abs(min(y));
-y_a=y+minino;
+y_a=y+minimo;
 %subplot(4,1,2)
 %plot(y)
 %sound(y,fs)
